@@ -132,7 +132,7 @@ namespace GameHubAPI.Controllers
                     }
 
                     var message1 = string.Format("Image Updated Successfully.");
-                    return Request.CreateErrorResponse(HttpStatusCode.Created, message1); ;
+                    return Request.CreateErrorResponse(HttpStatusCode.Created, message1);
                 }
                 var res = string.Format("Please Upload a image.");
                 dict.Add("error", res);
