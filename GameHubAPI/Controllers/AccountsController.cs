@@ -19,11 +19,6 @@ namespace GameHubAPI.Controllers
     {
         private GameHubAPIContext db = new GameHubAPIContext();
 
-        public string Get()
-        {
-            return "GGWP!";
-        }
-
         [AllowAnonymous]
         [HttpPost]
         [Route("api/login")]
@@ -40,13 +35,21 @@ namespace GameHubAPI.Controllers
                 return BadRequest("invalid password.");
             }
 
-            return Ok(JwtManager.GenerateToken(email));
+            return Ok(new
+            {
+                id = u.Id,
+                name = u.DisplayName,
+                email = u.Email,
+                picUrl = u.PicUrl,
+                role = u.Role,
+                token = JwtManager.GenerateToken(email)
+            });
         }
 
         [AllowAnonymous]
         [HttpPost]
         [Route("api/register")]
-        public IHttpActionResult Register(string email, string password)
+        public IHttpActionResult Register(string name, string email, string password)
         {
             User u = db.Users.FirstOrDefault(p => p.Email == email);
             if(u != null)
@@ -54,7 +57,7 @@ namespace GameHubAPI.Controllers
                 return BadRequest("email already exists.");
             }
 
-            db.Users.Add(new User() { Email = email, Password = password });
+            db.Users.Add(new User() {DisplayName = name, Email = email, Password = password });
             db.SaveChanges();
 
             return Ok(new {message = "user created successfully !" });

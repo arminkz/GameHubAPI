@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -195,6 +196,10 @@
     <Compile Include="Migrations\201901190755521_init1.Designer.cs">
       <DependentUpon>201901190755521_init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901200905482_init2.cs" />
+    <Compile Include="Migrations\201901200905482_init2.Designer.cs">
+      <DependentUpon>201901200905482_init2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Friendship.cs" />
     <Compile Include="Models\Game.cs" />
@@ -223,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901190755521_init1.resx">
       <DependentUpon>201901190755521_init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901200905482_init2.resx">
+      <DependentUpon>201901200905482_init2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

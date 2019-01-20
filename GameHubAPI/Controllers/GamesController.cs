@@ -15,14 +15,14 @@ namespace GameHubAPI.Controllers
     {
         private GameHubAPIContext db = new GameHubAPIContext();
 
-        // GET: api/Users
+        // GET: api/games
         public IQueryable<Game> GetGames()
         {
             return db.Games;
         }
 
-        // GET: api/Users/5
-        [ResponseType(typeof(User))]
+        // GET: api/games/5
+        [ResponseType(typeof(Game))]
         public IHttpActionResult GetGame(int id)
         {
             Game game = db.Games.Find(id);
