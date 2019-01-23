@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -22,6 +23,9 @@ namespace GameHubAPI.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //Fluent API
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
             modelBuilder.Entity<Friendship>().HasKey(f => new { f.UserId1, f.UserId2 });
                     modelBuilder.Entity<Friendship>()
                         .HasRequired(f => f.User1)
@@ -37,5 +41,6 @@ namespace GameHubAPI.Models
         public System.Data.Entity.DbSet<GameHubAPI.Models.User> Users { get; set; }
         public System.Data.Entity.DbSet<GameHubAPI.Models.Game> Games { get; set; }
         public System.Data.Entity.DbSet<GameHubAPI.Models.Friendship> Friendships { get; set; }
+        public System.Data.Entity.DbSet<GameHubAPI.Models.UserReview> UserReviews { get; set; }
     }
 }

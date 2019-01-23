@@ -35,6 +35,10 @@ namespace GameHubAPI.Controllers
                 return BadRequest("invalid password.");
             }
 
+            //update login time
+            u.LastLogin = DateTime.Now;
+            db.SaveChanges();
+
             return Ok(new
             {
                 id = u.Id,

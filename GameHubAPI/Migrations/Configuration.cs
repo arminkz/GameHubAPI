@@ -29,11 +29,6 @@ namespace GameHubAPI.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            context.Users.AddOrUpdate(p => p.Id,
-                new User() { Id = 1, DisplayName = "arminkz", Email = "arminkz@live.com" },
-                new User() { Id = 2, DisplayName = "aminsvnd", Email = "aminsvnd@gmail.com" }
-            );
         }
     }
 }

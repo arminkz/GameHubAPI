@@ -16,5 +16,6 @@ namespace GameHubAPI.Models
         public string Password { get; set; }
         public string PicUrl { get; set; }
         public string Role { get; set; }
+        public DateTime LastLogin { get; set; }
     }
 }
